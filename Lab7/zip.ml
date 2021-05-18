@@ -1,0 +1,3 @@
+fun zip([], []) = []
+  | zip (x::xs, y::ys) = (x,y)::zip(xs,ys);
+  

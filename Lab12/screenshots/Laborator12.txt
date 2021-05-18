@@ -1,0 +1,67 @@
+
+		-- Lab12
+
+	-- exercitiul 3.i --
+T = \x. \y. x
+F = \x. \y. y
+PAIR = \x. \y. \f. f x y
+FIRST = \p. p T
+SECOND = \p. p F
+SUCC = \p. \q. \r. q (p q r)
+PHI = \x. PAIR (SECOND x) (SUCC (SECOND x))
+PRED = \n. FIRST (n PHI (PAIR 0 0))
+SUB = \m. \n. n PRED m
+SUB 20 8
+
+
+	-- exercitiul 3.j
+F = \x. \y. y
+T = \x. \y. x
+lnot = \x. x F T
+isOdd = \n. n lnot F
+isOdd 2
+isOdd 7
+
+
+
+
+
+
+
+	--exercitiul 4
+
+
+T = \x. \y. x
+F = \x. \y. y
+PLUS = \m. \n. \f. \x. n f (m f x)
+lnot = \x. x F T
+PAIR = \x. \y. \f. f x y
+FIRST = \p. p T
+SECOND = \p. p F
+SUCC = \p. \q. \r. q (p q r)
+PHI = \x. PAIR (SECOND x) (SUCC (SECOND x))
+PRED = \n. FIRST (n PHI (PAIR 0 0))
+isZ = \x. x F lnot F
+MULT = \m. \n. m (PLUS n) 0
+SQSUM = \r. \n. isZ n 0 (PLUS (MULT n n) (r (PRED n)))
+SQSUM 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
